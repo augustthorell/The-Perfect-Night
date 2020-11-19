@@ -6,12 +6,27 @@
 <title>Cocktail Generator</title>
 
 <link rel="Stylesheet" type="text/css" href="../css/style.css" />
+<!--Font Library-->
+<link rel="stylesheet" href="https://use.typekit.net/hib8wjs.css">
+
 <script defer src="../js/script.js"></script>
 </head>
 
 <body>
+    <header>
+        <div class="hamburger-menu" id="js-navbar-toggle">
+            <img src="../img/menu-2.svg" alt="Hamburger menu">
+        </div>
 
-    <header></header>
+        <div class="menu" id="js-menu">
+            <ul class="menu-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="cocktail-generator.html">Cocktail generator</a></li>
+                <li><a href="cocktail-library.html">Cocktail library</a></li>
+                <li><a href="game.html">Start game</a></li>
+            </ul>
+        </div>
+    </header>
 
     <main>
         <h1 class="title">Cocktail Generator</h1>
@@ -20,9 +35,11 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
 
-        <button class="cocktail-generator">Generate cocktail</button>
+        <button class="button">Generate cocktail</button>
+
         <div class="drink-information"></div>
-        <button class="cocktail-library"><a href="cocktail-library.html">Cocktail library</a></button>
+
+        <button class="button"><a href="cocktail-library.html">View cocktail library</a></button>
 
     </main>
 

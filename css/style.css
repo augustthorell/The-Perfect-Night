@@ -9,7 +9,8 @@
     --button-text-color: #182026;
     --text-color: #E1DFC5;
     --main-button-color: #D9763D;
-    --game-button-color: #BFBA73;
+    --game-button-color: #A0A603;
+    --game-button-hover: #BFBA73;
     --dropdown-background: #364C59;
     --card-color: #A65233;
     --main-button-hover: #F2AA52;
@@ -19,6 +20,13 @@ body {
     background-color: var(--main-background);
 }
 
+main {
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: auto;
+    height: 100vh;
+}
+
 .title {
     font-family: fredericka-the-greatest, serif;
     font-weight: 400;
@@ -26,6 +34,7 @@ body {
     color: var(--text-color);
     grid-column-start: 2;
     margin: auto;
+    margin-top: 80px;
     height: 20px;
 }
 
@@ -36,11 +45,18 @@ body {
     color: var(--text-color);
     grid-column-start: 2;
     margin: auto;
+    text-align: center;
 }
 
 .homepage-buttons {
     grid-column-start: 2;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.homepage-buttons button {
+    margin-bottom: 20px;
 }
 
 button {
@@ -51,6 +67,7 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
+    color: var(--button-text-color);
 }
 
 button a {
@@ -62,19 +79,76 @@ button:hover {
     background-color: var(--main-button-hover);
 }
 
-main {
-    display: grid;
-    grid-template-columns: 5% 1fr 5%;
-    grid-template-rows: auto;
-    height: 100vh;
+.button {
+    grid-column-start: 2;
+    margin: auto;
+}
+
+.start-game {
+    background-color: var(--game-button-color);
+    color: var(--button-text-color);
+}
+
+.start-game:hover {
+    background-color: var(--game-button-hover);
+    color: var(--button-text-color);
 }
 
 .drink-icon {
     grid-column-start: 2;
     margin: auto;
+    height: 70px;
 }
 
-drink-icon {
-    grid-column-start: 2;
-    margin: auto;
+
+/*** Header ***/
+
+.hamburger-menu img {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: poppins, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.menu-list li:hover {
+    background-color: var(--main-background);
+}
+
+.menu-list li {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.menu {
+    background-color: var(--dropdown-background);
+    height: 235px;
+    width: 100%;
+    position: absolute;
+    top: -235px;
+    overflow: hidden;
+    transition: .5s ease;
+    z-index: 2;
+}
+
+.menu-list {
+    display: block;
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.active {
+    transform: translateY(235px);
+    transition: .5s;
 }
