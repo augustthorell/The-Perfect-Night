@@ -1,56 +1,93 @@
 let test = document.getElementById('cocktail');
-const testBtn = document.getElementById('search');
+const searchName = document.getElementById('search-name');
+const searchIngredient = document.getElementById('search-ingredient');
 let drinkInfo = document.getElementById("drink-info");
 
 
-testBtn.addEventListener('click', getLibrary);
+searchName.addEventListener('click', getLibrary);
+searchIngredient.addEventListener('click', getLibrary);
+
+
+
 
 function getLibrary() {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + test.value)
-        .then(function(response) {
-            if (response.status !== 200) {
-                console.log(
-                    "Looks like there was a problem. Status Code: " + response.status
-                );
-                return;
-            }
-
-            response.json().then(function(data) {
-                console.log(data)
-                clearcontent();
-                for (let i = 0; i < data.drinks.length; i++) {
-                    displayLibrary(data.drinks[i])
-
+    if (this.id === "search-name") {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + test.value)
+            .then(function(response) {
+                if (response.status !== 200) {
+                    console.log(
+                        "Looks like there was a problem. Status Code: " + response.status
+                    );
+                    return;
                 }
+
+                response.json().then(function(data) {
+                    clearcontent();
+                    for (let i = 0; i < data.drinks.length; i++) {
+                        displayLibrary(data.drinks[i])
+
+                    }
+                });
+            })
+            .catch(function(err) {
+                console.log("Fetch Error :-S", err);
             });
-        })
-        .catch(function(err) {
-            console.log("Fetch Error :-S", err);
-        });
+    } else if (this.id === "search-ingredient") {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + test.value)
+            .then(function(response) {
+                if (response.status !== 200) {
+                    console.log(
+                        "Looks like there was a problem. Status Code: " + response.status
+                    );
+                    return;
+                }
+
+                response.json().then(function(data) {
+                    clearcontent();
+                    for (let i = 0; i < data.drinks.length; i++) {
+                        displayLibrary(data.drinks[i])
+
+                    }
+                });
+            })
+            .catch(function(err) {
+                console.log("Fetch Error :-S", err);
+            });
+    }
+
+
 }
 
 function clearcontent() {
     drinkInfo.innerHTML = "";
 }
 
+
+
 function displayLibrary(cocktail) {
     // console.log(cocktail.drinks[0].strDrink);
+    let drinkCard = document.createElement("div");
+    drinkCard.className = "drink-card";
+    drinkInfo.appendChild(drinkCard);
 
     let drinkName = document.createElement("h2");
     drinkName.innerHTML = cocktail.strDrink;
 
     drinkName.id = "drink-name";
-    drinkInfo.appendChild(drinkName);
+    drinkCard.appendChild(drinkName);
 
     let img = document.createElement("img");
     img.src = cocktail.strDrinkThumb;
-    img.id = "cocktail-image";
-    drinkInfo.appendChild(img);
+    img.className = "cocktail-image-library";
+    drinkCard.appendChild(img);
+
+
+    /*
 
     let ingredientTitle = document.createElement("h3");
     ingredientTitle.innerHTML = "Ingredients:";
     ingredientTitle.id = "ingredient-title";
-    drinkInfo.appendChild(ingredientTitle);
+    drinkCard.appendChild(ingredientTitle);
 
     for (let i = 1; i < 16; i++) {
         if (
@@ -64,7 +101,7 @@ function displayLibrary(cocktail) {
             cocktail[`strMeasure${i}`] = ' ';
         }
 
-        let ingredient = document.createElement("list-item");
+        let ingredient = document.createElement("h4");
         ingredient.innerHTML =
             "-- " +
             cocktail[`strIngredient${i}`] +
@@ -73,19 +110,20 @@ function displayLibrary(cocktail) {
             "<br>";
 
         ingredient.className = "drink-ingredient";
-        drinkInfo.appendChild(ingredient);
+        drinkCard.appendChild(ingredient);
     }
 
     let ingredientDescriptio = document.createElement("h3");
     ingredientDescriptio.innerHTML = "<br>How to make it:";
     ingredientDescriptio.id = "ingredient-description";
-    drinkInfo.appendChild(ingredientDescriptio);
+    drinkCard.appendChild(ingredientDescriptio);
 
-    let recipe = document.createElement("recipe");
+    let recipe = document.createElement("h4");
     recipe.innerHTML = cocktail.strInstructions;
 
     recipe.id = "drink-recipe";
-    drinkInfo.appendChild(recipe);
+    drinkCard.appendChild(recipe);
+    */
 }
 
 

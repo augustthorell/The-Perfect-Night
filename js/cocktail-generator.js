@@ -1,5 +1,5 @@
 const generatorBtn = document.getElementById("generator");
-let drinkInfo = document.getElementById("drink-library");
+let drinkInfo = document.getElementById("drink-info");
 
 function getRandomeCocktail() {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -71,7 +71,7 @@ function displayRandomCocktail(cocktail) {
     ingredientDescriptio.id = "ingredient-description";
     drinkInfo.appendChild(ingredientDescriptio);
 
-    let recipe = document.createElement("recipe");
+    let recipe = document.createElement("h4");
     recipe.innerHTML = cocktail.drinks[0].strInstructions;
 
     recipe.id = "drink-recipe";
