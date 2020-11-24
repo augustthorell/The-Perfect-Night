@@ -65,65 +65,71 @@ function clearcontent() {
 
 
 function displayLibrary(cocktail) {
-    // console.log(cocktail.drinks[0].strDrink);
+    // Creates a div that wrappes the fetched information
     let drinkCard = document.createElement("div");
     drinkCard.className = "drink-card";
     drinkInfo.appendChild(drinkCard);
 
+    // Creates the wrapper for the title 
+    let titleWrapper = document.createElement("div");
+    titleWrapper.className = "title-wrapper";
+    drinkCard.appendChild(titleWrapper);
+
+    // Writes out the Title of the drink
     let drinkName = document.createElement("h2");
     drinkName.innerHTML = cocktail.strDrink;
+    drinkName.className = "drink-name-library";
+    titleWrapper.appendChild(drinkName);
 
-    drinkName.id = "drink-name";
-    drinkCard.appendChild(drinkName);
 
+    // Creates the image
     let img = document.createElement("img");
     img.src = cocktail.strDrinkThumb;
     img.className = "cocktail-image-library";
     drinkCard.appendChild(img);
 
-
     /*
 
-    let ingredientTitle = document.createElement("h3");
-    ingredientTitle.innerHTML = "Ingredients:";
-    ingredientTitle.id = "ingredient-title";
-    drinkCard.appendChild(ingredientTitle);
+      let ingredientTitle = document.createElement("h3");
+      ingredientTitle.innerHTML = "Ingredients:";
+      ingredientTitle.id = "ingredient-title";
+      drinkCard.appendChild(ingredientTitle);
 
-    for (let i = 1; i < 16; i++) {
-        if (
-            cocktail[`strIngredient${i}`] == null ||
-            cocktail[`strIngredient${i}`] == ""
-        ) {
-            break;
-        }
-        if (cocktail[`strMeasure${i}`] == null ||
-            cocktail[`strMeasure${i}`] == "") {
-            cocktail[`strMeasure${i}`] = ' ';
-        }
+      for (let i = 1; i < 16; i++) {
+          if (
+              cocktail[`strIngredient${i}`] == null ||
+              cocktail[`strIngredient${i}`] == ""
+          ) {
+              break;
+          }
+          if (cocktail[`strMeasure${i}`] == null ||
+              cocktail[`strMeasure${i}`] == "") {
+              cocktail[`strMeasure${i}`] = ' ';
+          }
 
-        let ingredient = document.createElement("h4");
-        ingredient.innerHTML =
-            "-- " +
-            cocktail[`strIngredient${i}`] +
-            ": " +
-            cocktail[`strMeasure${i}`] +
-            "<br>";
+          let ingredient = document.createElement("h4");
+          ingredient.innerHTML =
+              "-- " +
+              cocktail[`strIngredient${i}`] +
+              ": " +
+              cocktail[`strMeasure${i}`] +
+              "<br>";
 
-        ingredient.className = "drink-ingredient";
-        drinkCard.appendChild(ingredient);
-    }
+          ingredient.className = "drink-ingredient";
+          drinkCard.appendChild(ingredient);
+      }
 
-    let ingredientDescriptio = document.createElement("h3");
-    ingredientDescriptio.innerHTML = "<br>How to make it:";
-    ingredientDescriptio.id = "ingredient-description";
-    drinkCard.appendChild(ingredientDescriptio);
+      let ingredientDescriptio = document.createElement("h3");
+      ingredientDescriptio.innerHTML = "<br>How to make it:";
+      ingredientDescriptio.id = "ingredient-description";
+      drinkCard.appendChild(ingredientDescriptio);
 
-    let recipe = document.createElement("h4");
-    recipe.innerHTML = cocktail.strInstructions;
+      let recipe = document.createElement("h4");
+      recipe.innerHTML = cocktail.strInstructions;
 
-    recipe.id = "drink-recipe";
-    drinkCard.appendChild(recipe);
-    */
+      recipe.id = "drink-recipe";
+      drinkCard.appendChild(recipe);
+      */
 }
 
 
