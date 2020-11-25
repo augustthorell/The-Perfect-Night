@@ -48,9 +48,8 @@ function checkAnswer() {
     } else {
         console.log("You answered Wrong");
         modalBackground.style.background = "#a32428";
-        window.navigator.vibrate(500);
     }
-    setTimeout(getQuestion, 3000);
+    setTimeout(getQuestion, 500, true);
 }
 
 startGameButton.addEventListener("click", randomTimer);

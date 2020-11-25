@@ -119,6 +119,10 @@ button:hover {
 
 /*** Header ***/
 
+ul {
+    list-style: none;
+}
+
 .menu-list li a {
     text-decoration: none;
     color: var(--text-color);
