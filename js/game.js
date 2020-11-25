@@ -4,6 +4,7 @@ let gameOverText = document.querySelector(".game-over-text");
 let modalBackground = document.querySelector(".input_div");
 let buttonTrue = document.getElementById("True");
 let buttonFalse = document.getElementById("False");
+let buttonRestart = document.getElementById("restart");
 
 let correctAnswer;
 
@@ -12,6 +13,7 @@ function randomTimer() {
     buttonTrue.style.display = "block";
     buttonFalse.style.display = "block";
     questionBox.style.display = "block";
+    buttonRestart.style.display = "none";
 
     getQuestion();
     // let randomTime = (Math.floor(Math.random * 120000) + 10000);
@@ -20,13 +22,14 @@ function randomTimer() {
         gameOverText.style.display = "block";
         buttonTrue.style.display = "none";
         buttonFalse.style.display = "none";
+        buttonRestart.style.display = "block";
         questionBox.style.display = "none";
 
     }, randomTime);
 }
 
 function getQuestion() {
-
+    questionBox.innerHTML = "";
     fetch("https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean")
         .then(function(response) {
             if (response.status !== 200) {
@@ -64,6 +67,7 @@ function checkAnswer() {
 }
 
 startGameButton.addEventListener("click", randomTimer);
+buttonRestart.addEventListener('click', randomTimer);
 buttonTrue.addEventListener("click", checkAnswer);
 buttonFalse.addEventListener("click", checkAnswer);
 

@@ -485,3 +485,10 @@ ul {
     display: none;
     font-size: 2rem;
 }
+
+.button-restart {
+    display: none;
+    margin: auto;
+    grid-column: span 2;
+    grid-row-start: 4;
+}
