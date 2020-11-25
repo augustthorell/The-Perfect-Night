@@ -9,6 +9,7 @@
     <link rel="Stylesheet" type="text/css" href="../css/style.css" />
     <!--Font Library-->
     <link rel="stylesheet" href="https://use.typekit.net/hib8wjs.css">
+    <link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
 
     <script defer src="../js/script.js"></script>
     <script defer src="../js/game.js"></script>
@@ -45,9 +46,27 @@
         <img src="../img/bomb.svg" class="drink-icon bomb-icon" alt="Image of cocktail">
 
 
-
         <button class="button start-game" id="start-game">Start game</button>
 
+
+
+        <div id="myModal" class="modal">
+            <div class="input_div">
+                <span class="close">&times;</span>
+
+                <div class="grid-wrapper">
+
+                    <div class="game-question"></div>
+
+                    <button class="button-true" type="button" id="True">True</button>
+                    <button class="button-false" type="button" id="False">False</button>
+
+                    <img src="../img/bomb.svg" class="game-bomb-icon shake" alt="Image of cocktail">
+
+
+                </div>
+            </div>
+        </div>
 
         <div class="game-topic"></div>
 
