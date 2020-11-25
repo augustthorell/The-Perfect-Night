@@ -1,5 +1,6 @@
 const startGameButton = document.getElementById("start-game");
 const questionBox = document.querySelector(".game-question");
+let gameOverText = document.querySelector(".game-over-text");
 let modalBackground = document.querySelector(".input_div");
 let buttonTrue = document.getElementById("True");
 let buttonFalse = document.getElementById("False");
@@ -7,16 +8,25 @@ let buttonFalse = document.getElementById("False");
 let correctAnswer;
 
 function randomTimer() {
+    gameOverText.style.display = "none";
+    buttonTrue.style.display = "block";
+    buttonFalse.style.display = "block";
+    questionBox.style.display = "block";
+
     getQuestion();
     // let randomTime = (Math.floor(Math.random * 120000) + 10000);
     let randomTime = Math.floor(Math.random() * 5000) + 1000;
     setTimeout(function() {
-        //console.log("You lose, loser");
+        gameOverText.style.display = "block";
+        buttonTrue.style.display = "none";
+        buttonFalse.style.display = "none";
+        questionBox.style.display = "none";
+
     }, randomTime);
 }
 
 function getQuestion() {
-    modalBackground.style.background = "#364c59";
+
     fetch("https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean")
         .then(function(response) {
             if (response.status !== 200) {
@@ -28,6 +38,7 @@ function getQuestion() {
 
             response.json().then(function(data) {
                 //console.log(data);
+                modalBackground.style.background = "#364c59";
                 displayQuestion(data.results[0].question);
                 correctAnswer = data.results[0].correct_answer;
             });

@@ -442,7 +442,7 @@ ul {
     /* font-weight: 300; */
     font-style: normal;
     color: var(--text-color);
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -470,4 +470,18 @@ ul {
     margin: auto;
     width: 120px;
     height: 40px;
+}
+
+.game-over-text {
+    margin: auto;
+    grid-column: span 2;
+    grid-row-start: 3;
+    font-family: poppins, sans-serif;
+    font-style: normal;
+    color: var(--text-color);
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: none;
+    font-size: 2rem;
 }
