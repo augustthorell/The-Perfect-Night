@@ -54,8 +54,10 @@ function getLibrary() {
                 console.log("Fetch Error :-S", err);
             });
     }
+}
 
-
+function openCard() {
+    console.log(this.className + 'test')
 }
 
 function clearcontent() {
@@ -65,7 +67,8 @@ function clearcontent() {
 
 
 function displayLibrary(cocktail) {
-    // Creates a div that wrappes the fetched information
+    console.log(cocktail)
+        // Creates a div that wrappes the fetched information
     let drinkCard = document.createElement("div");
     drinkCard.className = "drink-card";
     drinkInfo.appendChild(drinkCard);
@@ -81,12 +84,12 @@ function displayLibrary(cocktail) {
     drinkName.className = "drink-name-library";
     titleWrapper.appendChild(drinkName);
 
-
     // Creates the image
     let img = document.createElement("img");
     img.src = cocktail.strDrinkThumb;
     img.className = "cocktail-image-library";
     drinkCard.appendChild(img);
+
 
     /*
 
@@ -131,7 +134,6 @@ function displayLibrary(cocktail) {
       drinkCard.appendChild(recipe);
       */
 }
-
 
 
 /*

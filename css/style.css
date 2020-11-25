@@ -23,7 +23,7 @@ body {
 main {
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    height: 100vh;
+    row-gap: 20px;
 }
 
 .title {
@@ -320,7 +320,7 @@ ul {
 
 .form-control {
     grid-column-start: 2;
-    grid-row-start: 5;
+    grid-row-start: 4;
     margin: auto;
     padding: 0.3rem;
     margin-bottom: 1rem;
@@ -329,7 +329,7 @@ ul {
 
 .button-wrapper {
     grid-column-start: 2;
-    grid-row-start: 6;
+    grid-row-start: 5;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -347,23 +347,36 @@ ul {
 
 .drink-information-library {
     display: grid;
-    margin: 0 auto;
+    margin-left: 5px;
+    margin-right: 5px;
     grid-template-columns: repeat(auto-fit, minmax(177px, 2fr));
-    grid-column-gap: 1.3rem;
-    grid-row-gap: 0;
     grid-row-start: 8;
-    height: 340px;
     grid-column-start: 1;
     grid-column-end: 4;
 }
 
 .drink-card {
-    border: 2px solid black;
+    background-color: black;
+    border-radius: 10px;
     margin: 5px;
+    overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    cursor: pointer;
+    transition: .3s ease;
+    /* box-shadow: 20px 20px 60px #141b20, -20px -20px 60px #1c252c; */
+}
+
+.drink-card:hover {
+    transform: scale(1.025);
+}
+
+.title-wrapper {
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .drink-name-library {
