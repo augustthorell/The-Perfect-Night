@@ -112,7 +112,7 @@ window.onclick = function(event) {
 
 
 function fillModal(cocktail) {
-
+    console.log(cocktail);
     // Creates a div that wrappes the fetched information
     let drinkCard = document.createElement("div");
     drinkCard.className = "drink-modal";
@@ -200,5 +200,5 @@ function displayLibrary(cocktail) {
     let img = document.createElement("img");
     img.src = cocktail.strDrinkThumb;
     img.className = "cocktail-image-library";
-    drinkCard.appendChild(img);    
+    drinkCard.appendChild(img);
 }

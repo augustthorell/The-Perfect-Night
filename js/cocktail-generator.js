@@ -41,10 +41,14 @@ function displayRandomCocktail(cocktail) {
     img.id = "cocktail-image";
     drinkInfo.appendChild(img);
 
+    let recipieWrapper = document.createElement("div");
+    recipieWrapper.className = "recipe-wrapper";
+    drinkInfo.appendChild(recipieWrapper);
+
     let ingredientTitle = document.createElement("h3");
     ingredientTitle.innerHTML = "Ingredients:";
     ingredientTitle.id = "ingredient-title";
-    drinkInfo.appendChild(ingredientTitle);
+    recipieWrapper.appendChild(ingredientTitle);
 
     for (let i = 1; i < 16; i++) {
         if (
@@ -53,27 +57,39 @@ function displayRandomCocktail(cocktail) {
         ) {
             break;
         }
+        if (
+            cocktail.drinks[0][`strMeasure${i}`] == null ||
+            cocktail.drinks[0][`strMeasure${i}`] == ""
+        ) {
+            cocktail.drinks[0][`strMeasure${i}`] = " ";
+        } else {
+            cocktail.drinks[0][`strMeasure${i}`] = ": " + cocktail.drinks[0][`strMeasure${i}`];
+        }
 
-        let ingredient = document.createElement("list-item");
+        let ingredient = document.createElement("h4");
         ingredient.innerHTML =
             "-- " +
             cocktail.drinks[0][`strIngredient${i}`] +
-            ": " +
+            " " +
             cocktail.drinks[0][`strMeasure${i}`] +
             "<br>";
 
         ingredient.className = "drink-ingredient";
-        drinkInfo.appendChild(ingredient);
+        recipieWrapper.appendChild(ingredient);
     }
 
-    let ingredientDescriptio = document.createElement("h3");
-    ingredientDescriptio.innerHTML = "<br>How to make it:";
-    ingredientDescriptio.id = "ingredient-description";
-    drinkInfo.appendChild(ingredientDescriptio);
+    let descriptionWrapper = document.createElement("div");
+    descriptionWrapper.className = "description-wrapper";
+    drinkInfo.appendChild(descriptionWrapper);
+
+    let ingredientDescription = document.createElement("h3");
+    ingredientDescription.innerHTML = "<br>How to make it:";
+    ingredientDescription.id = "ingredient-description";
+    descriptionWrapper.appendChild(ingredientDescription);
 
     let recipe = document.createElement("h4");
     recipe.innerHTML = cocktail.drinks[0].strInstructions;
 
     recipe.id = "drink-recipe";
-    drinkInfo.appendChild(recipe);
+    descriptionWrapper.appendChild(recipe);
 }

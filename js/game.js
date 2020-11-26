@@ -20,8 +20,8 @@ function randomTimer() {
     buttonRestart.style.display = "none";
 
     getQuestion();
-    //let randomTime = Math.floor(Math.random() * 120000) + 10000;
-    let randomTime = Math.floor(Math.random() * 5000) + 1000;
+    let randomTime = Math.floor(Math.random() * 120000) + 10000;
+    //let randomTime = Math.floor(Math.random() * 5000) + 1000;
     setTimeout(function() {
         gameOverText.style.display = "block";
         buttonTrue.style.display = "none";

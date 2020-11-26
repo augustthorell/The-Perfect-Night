@@ -95,6 +95,7 @@ button:hover {
 .button {
     grid-column-start: 2;
     margin: auto;
+    transition: .1s ease;
 }
 
 .start-game {
@@ -253,7 +254,7 @@ ul {
     font-weight: 400;
     font-style: normal;
     padding-bottom: 0.5rem;
-    text-align: center;
+    text-align: left;
 }
 
 #drink-recipe {
@@ -347,12 +348,12 @@ input[type='text'],
 
 .btn.btn-outline-secondary {
     margin-right: 5px;
-    width: 140px;
+    width: 135px;
 }
 
 .btn.btn-outline-secondary2 {
     margin-left: 5px;
-    width: 140px;
+    width: 135px;
 }
 
 .drink-information-library {
@@ -421,7 +422,7 @@ input[type='text'],
 }
 
 .close {
-    color: #ffffff;
+    color: var(--text-color);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -432,7 +433,7 @@ input[type='text'],
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: rgb(82, 77, 77);
     text-decoration: none;
     cursor: pointer;
 }
@@ -461,6 +462,7 @@ input[type='text'],
     background-color: var(--card-background);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .drink-modal .title-wrapper .drink-name-library {
@@ -508,6 +510,10 @@ input[type='text'],
     grid-row-start: 4;
 }
 
+.button-true:hover {
+    background-color: var(--game-button-hover);
+}
+
 .button-false {
     grid-column: 2;
     grid-row-start: 4;
@@ -541,6 +547,96 @@ input[type='text'],
     grid-row-start: 4;
 }
 
-grid-row-start: 4;
 
+/* Media Query */
+
+@media screen and (min-width: 481px) {
+    main {
+        grid-template-columns: 20% 1fr 20%;
+        row-gap: 20px;
+    }
+    .drink-information-library {
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
 }
+
+@media screen and (min-width: 768px) {
+    .library-modal {
+        width: 50vw;
+    }
+    .drink-information {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        column-gap: 20px;
+    }
+    .drink-information #drink-name {
+        grid-column-start: span 2;
+    }
+    .drink-information #cocktail-image {
+        grid-column-start: 1;
+    }
+    .recipe-wrapper {
+        grid-column-start: 2;
+    }
+    .description-wrapper {
+        grid-column-start: span 2;
+    }
+    .button-true,
+    .button-false {
+        width: 200px;
+        height: 60px;
+        font-size: 1.2rem;
+    }
+    .button-true {
+        margin-right: 15px;
+    }
+    .button-false {
+        margin-left: 15px;
+    }
+    .game-question {
+        font-size: 1.2rem;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .menu {
+        width: 235px;
+        height: 30%;
+        position: fixed;
+        top: 0;
+        right: calc(0% - 235px);
+        transition: 0.5s ease;
+        z-index: 2;
+    }
+    .menu-list {
+        margin-top: 3.5rem;
+    }
+    .active {
+        transform: translateX(-235px);
+        transition: 0.5s;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        row-gap: 30px;
+    }
+    .homepage-buttons {
+        flex-direction: row;
+    }
+    .homepage-buttons button {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .library-modal {
+        width: 40vw;
+    }
+    .drink-icon {
+        height: 100px;
+    }
+}
+
+481px — 768px: iPads,
+Tablets 769px — 1024px: Small screens,
+laptops 1025px — 1200px: Desktops,
+large screens
