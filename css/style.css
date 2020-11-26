@@ -14,6 +14,7 @@
     --dropdown-background: #364c59;
     --card-color: #a65233;
     --main-button-hover: #f2aa52;
+    --card-background: rgb(6, 7, 8);
 }
 
 body {
@@ -78,7 +79,11 @@ button {
     color: var(--button-text-color);
 }
 
-button a {
+a button {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
     text-decoration: none;
     color: var(--button-text-color);
 }
@@ -356,7 +361,7 @@ ul {
 }
 
 .drink-card {
-    background-color: black;
+    background-color: var(--card-background);
     border-radius: 10px;
     margin: 5px;
     overflow: hidden;
@@ -415,10 +420,9 @@ ul {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    margin-right: 1rem;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 5px;
 }
 
 .close:hover,
@@ -435,9 +439,35 @@ ul {
     transform: translate(-50%, -50%);
     width: 80vw;
     height: 50vh;
+    border-radius: 20px;
     background-color: var(--dropdown-background);
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.library-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-height: 90vh;
+    border-radius: 20px;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: scroll;
+}
+
+.drink-modal .title-wrapper .drink-name-library {
+    font-size: 1.5rem;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.drink-modal h3,
+.drink-modal h4 {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .grid-wrapper {
@@ -504,4 +534,8 @@ ul {
     margin: auto;
     grid-column: span 2;
     grid-row-start: 4;
+}
+
+grid-row-start: 4;
+
 }

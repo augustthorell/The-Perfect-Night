@@ -5,8 +5,12 @@ let modalBackground = document.querySelector(".input_div");
 let buttonTrue = document.getElementById("True");
 let buttonFalse = document.getElementById("False");
 let buttonRestart = document.getElementById("restart");
-
+var btn = document.getElementById("start-game");
 let correctAnswer;
+
+btn.onclick = function() {
+    modal.style.display = "block";
+};
 
 function randomTimer() {
     gameOverText.style.display = "none";
