@@ -20,8 +20,8 @@ function randomTimer() {
     buttonRestart.style.display = "none";
 
     getQuestion();
-    let randomTime = Math.floor(Math.random() * 120000) + 10000;
-    //let randomTime = Math.floor(Math.random() * 5000) + 1000;
+    //let randomTime = Math.floor(Math.random() * 120000) + 10000;
+    let randomTime = Math.floor(Math.random() * 5000) + 1000;
     setTimeout(function() {
         gameOverText.style.display = "block";
         buttonTrue.style.display = "none";
@@ -34,7 +34,7 @@ function randomTimer() {
 
 function getQuestion() {
     questionBox.innerHTML = "";
-    fetch("https://opentdb.com/api.php?amount=1&difficulty=easy&type=boolean")
+    fetch("https://opentdb.com/api.php?amount=1&type=boolean")
         .then(function(response) {
             if (response.status !== 200) {
                 console.log(
@@ -61,10 +61,8 @@ function displayQuestion(question) {
 
 function checkAnswer() {
     if (this.id == correctAnswer) {
-        console.log("You answered Correctly");
         modalBackground.style.background = "#2a8c2f";
     } else {
-        console.log("You answered Wrong");
         modalBackground.style.background = "#a32428";
     }
     setTimeout(getQuestion, 500, true);
