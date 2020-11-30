@@ -193,6 +193,9 @@ ul {
     stroke: var(--text-color);
     stroke-width: 6;
     transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .line1 {
@@ -429,11 +432,12 @@ input[type='text'],
     position: absolute;
     right: 10px;
     top: 5px;
+    transition: 0.5 ease;
 }
 
 .close:hover,
 .close:focus {
-    color: rgb(82, 77, 77);
+    color: rgb(150, 148, 148);
     text-decoration: none;
     cursor: pointer;
 }
@@ -601,6 +605,7 @@ input[type='text'],
     }
     .menu {
         width: 235px;
+        min-height: 280px;
         height: 30%;
         position: fixed;
         top: 0;
@@ -636,7 +641,9 @@ input[type='text'],
     }
 }
 
-481px — 768px: iPads,
+
+/*481px — 768px: iPads,
 Tablets 769px — 1024px: Small screens,
 laptops 1025px — 1200px: Desktops,
 large screens
+*/
